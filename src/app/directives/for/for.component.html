@@ -1,0 +1,41 @@
+<!-- <p>for works!</p>
+<h2 *ngFor="let name of names">
+    {{name}} 
+</h2>
+<h3 *ngFor="let x of names; index as i">
+    value: {{x}}-----                           g
+</h3> -->
+<!-- <h2 *ngFor="let x of emp | keyvalue">
+    {{x.key}}-----{{x.value | json}}
+</h2> -->
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of emp; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{x.name}}</td>
+        <td>{{x.age}}</td>
+        <td>{{x.role}}</td>
+      </tr>
+    
+      <!-- <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr> -->
+    </tbody>
+  </table>

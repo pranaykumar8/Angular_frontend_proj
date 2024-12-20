@@ -1,0 +1,114 @@
+<p>jdbc works!</p>
+<div class="container">
+    <h2>Product Management</h2>
+  
+    <!-- Form for inserting/updating data -->
+
+
+    <form [formGroup]="registrationForm">
+      <div class="form-group">
+        <label for="id">Product ID:</label>
+        <input id="id" formControlName="id" class="form-control" type="number" placeholder="Enter Product ID" />
+      </div>
+  
+      <div class="form-group">
+        <label for="brand">Brand:</label>
+        <input id="brand" formControlName="brand" class="form-control" type="text" placeholder="Enter Brand Name" />
+      </div>
+
+      <div class="form-group">
+        <label for="processor">Processor:</label>
+        <input id="processor" formControlName="processor" class="form-control" type="text" placeholder="Enter processor " />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input id="price" formControlName="price" class="form-control" type="number" placeholder="Enter Price" />
+      </div> 
+  
+      <!-- Buttons to trigger operations -->
+      
+      
+      <button type="button" class="btn btn-success" (click)="postData()">Register</button>
+      <button type="button" class="btn btn-info" (click)="updateData()">Update</button>
+      <button type="button" class="btn btn-dark" (click)="deleteData(registrationForm.value.id)">Delete</button>
+    </form>
+  
+
+
+    <!-- Display success/error messages -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div> 
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div> 
+  
+    <!-- Display list of products fetched -->
+    <div class="mt-4">
+      <h3>Fetched Products</h3>
+      <button class="btn btn-secondary" (click)="getData()">Get Products</button>
+      <ul *ngIf="products.length > 0" class="list-group mt-3">
+        <li *ngFor="let product of products" class="list-group-item">
+          {{ product.id }} - {{ product.brand }} -{{ product.processor }}-${{ product.price }}
+        </li>
+      </ul>
+      <div *ngIf="products.length === 0" class="mt-2">No products available.</div>
+    </div>
+
+
+    <!-- <div class="container">
+      <h2 class="title">Product Management</h2>
+    
+      <form [formGroup]="registrationForm" class="form-container">
+        <div class="form-group">
+          <label for="id">Product ID:</label>
+          <input id="id" formControlName="id" class="form-control" type="number" placeholder="Enter Product ID" />
+        </div>
+    
+        <div class="form-group">
+          <label for="brand">Brand:</label>
+          <input id="brand" formControlName="brand" class="form-control" type="text" placeholder="Enter Brand Name" />
+        </div>
+    
+        <div class="form-group">
+          <label for="processor">Processor:</label>
+          <input id="processor" formControlName="processor" class="form-control" type="text" placeholder="Enter processor" />
+        </div>
+    
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input id="price" formControlName="price" class="form-control" type="number" placeholder="Enter Price" />
+        </div>
+    
+        <div class="button-group">
+          <button type="button" class="btn btn-success" (click)="postData()">Register</button>
+          <button type="button" class="btn btn-info" (click)="updateData()">Update</button>
+          <button type="button" class="btn btn-dark" (click)="deleteData(registrationForm.value.id)">Delete</button>
+        </div>
+      </form>
+    
+      <div class="messages">
+        <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+      </div>
+    
+      <div class="product-list-container">
+        <h3>Fetched Products</h3>
+        <button class="btn btn-secondary" (click)="getData()">Get Products</button>
+    
+        <ul *ngIf="products.length > 0" class="product-list">
+          <li *ngFor="let product of products" class="product-item">
+            <span class="product-id">{{ product.id }}</span> 
+            <span class="product-brand">{{ product.brand }}</span>
+            <span class="product-processor">{{ product.processor }}</span> 
+            <span class="product-price">${{ product.price }}</span>
+          </li>
+        </ul>
+    
+        <div *ngIf="products.length === 0" class="no-products">No products available.</div>
+      </div>
+    </div> --> 
+    
+  

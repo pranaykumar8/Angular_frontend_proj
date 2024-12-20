@@ -1,0 +1,81 @@
+<p>tdf works!</p>
+<!-- <div class=rows>
+    <div class="rows-6">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="container-lg">100% wide until large breakpoint</div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="container-fluid">
+                ...
+              </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div> -->
+
+<h3 style="color:red;text-align: center;font-weight: bold;margin-top :10px;">User Registration Form </h3>"
+
+<div class="container mt-4">
+<form #userForm="ngForm" (ngSubmit)="postData(userForm)">
+<div class="row">
+<div class="col-6">
+<div class="mb-3">
+<input type="text"
+class="form-control"
+placeholder="Enter User Name"ngModel name="username"required #uname="ngModel"[class.is-invalid]="uname.invalid && uname.touched">
+<small class="text-danger" [class.d-none]="uname.valid || uname.untouched">user name required <sup>*</sup></small>
+</div>
+<div class="mb-3">
+<input type="text" class="form-control"pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Email ld"ngModel name="email"required #umail="ngModel"[class.is-invalid]="umail.invalid && umail.touched">
+<small class="text-danger" [class.d-none]="umail.valid || umail.untouched">mail is required <sup>*</sup></small>
+</div>
+<div class="mb-3">
+<input type="text" 
+class="form-control"
+placeholder="Enter Phone Number"ngModel name="mobile">
+</div>
+<button class="btn btn-primary"[disabled]="uname.invalid || umail.invalid"> Register </button>
+</div>
+<div class="col-6">
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="radio"name="gender" id="male " value="male" ngModel>
+<label class="form-check-label"for="male">Male</label>
+</div>
+<div class="form-check form-check-inline">
+<input class="form-check-input" type="radio" name="gender" id="female" value="female" ngModel >
+<label class="form-check-label" for="female">Female</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio"name="gender" id="others" value="others" ngModel>
+<label class="form-check-label" for="others">Others</label>
+ </div>
+<div class="mt-4">
+<select class="form-select"ngModel name="courses">
+<option selected>Please Select Course</option>
+<option *ngFor="let course of courses"
+value="{{course}}">{{course}}</option>
+</select>
+
+<div class="form-check form-check-inline mt-4">
+<input class="form-check-input" type="checkbox"
+id="inlineCheckbox1 " value="optionl"ngModel name="checkbox">
+<label class="form-check-label"
+for="inlineCheckbox1 ">Remeber Me</label>
+</div>
+</div>
+</div>
+</div>
+</form>
+{{userForm.value|json}}

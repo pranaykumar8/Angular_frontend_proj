@@ -1,0 +1,61 @@
+<p>pestiq works!</p>
+<div class="container">
+  <h2>Pestiq Management</h2>
+
+  <form (ngSubmit)="createPestiq()" *ngIf="!pestiq.order_id">
+    <h3>Create Pestiq</h3>
+    <input type="number" placeholder="Order id" [(ngModel)]="pestiq.order_id" name="order_id" required />
+    <input type="text" placeholder="Order Name" [(ngModel)]="pestiq.order_name" name="order_name" required />
+    <input type="text" placeholder="Items" [(ngModel)]="pestiq.items" name="items" required />
+    <input type="number" placeholder="Quantity" [(ngModel)]="pestiq.quantity" name="quantity" required />
+    <input type="number" step="0.01" placeholder="Price" [(ngModel)]="pestiq.price" name="price" required />
+    <input type="text" placeholder="Location" [(ngModel)]="pestiq.location" name="location" required />
+    <input type="text" placeholder="Delivery Type" [(ngModel)]="pestiq.delivary_type" name="delivary_type" required />
+    <input type="text" placeholder="Payment Type" [(ngModel)]="pestiq.payment_type" name="payment_type" />
+    <button type="submit">Create</button>
+  </form>
+
+  <form (ngSubmit)="updatePestiq()" *ngIf="pestiq.order_id">
+    <h3>Update Pestiq</h3>
+    <input type="text" placeholder="Order Name" [(ngModel)]="pestiq.order_name" name="order_name" required />
+    <input type="text" placeholder="Items" [(ngModel)]="pestiq.items" name="items" required />
+    <input type="number" placeholder="Quantity" [(ngModel)]="pestiq.quantity" name="quantity" required />
+    <input type="number" step="0.01" placeholder="Price" [(ngModel)]="pestiq.price" name="price" required />
+    <input type="text" placeholder="Location" [(ngModel)]="pestiq.location" name="location" required />
+    <input type="text" placeholder="Delivery Type" [(ngModel)]="pestiq.delivary_type" name="delivary_type" required />
+    <input type="text" placeholder="Payment Type" [(ngModel)]="pestiq.payment_type" name="payment_type" />
+    <button type="submit">Update</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Order Name</th>
+        <th>Items</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Delivery Type</th>
+        <th>Payment Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pestiq of pestiqs">
+        <td>{{ pestiq.order_id }}</td>
+        <td>{{ pestiq.order_name }}</td>
+        <td>{{ pestiq.items }}</td>
+        <td>{{ pestiq.quantity }}</td>
+        <td>{{ pestiq.price }}</td>
+        <td>{{ pestiq.location }}</td>
+        <td>{{ pestiq.delivary_type }}</td>
+        <td>{{ pestiq.payment_type }}</td>
+        <td>
+          <button (click)="selectPestiq(pestiq)">Edit</button>
+          <button (click)="deletePestiq(pestiq.order_id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
