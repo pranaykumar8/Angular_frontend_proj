@@ -16,13 +16,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instafeed.component.css']
 })
 export class InstafeedComponent implements OnInit {
-  username: string = 'your_username';
+  username: string = 'Pranay_Rao';
 
   // Define posts property with some mock data
   posts: Array<{ username: string; imageUrl: string }> = [
-    { username: 'user1', imageUrl: 'https://via.placeholder.com/500' },
-    { username: 'user2', imageUrl: 'https://via.placeholder.com/500' },
-    { username: 'user3', imageUrl: 'https://via.placeholder.com/500' },
+    { username: 'Pranay', imageUrl: 'https://via.placeholder.com/500' },
+    { username: 'Srinivas', imageUrl: 'https://via.placeholder.com/500' },
+    { username: 'Balakrishna', imageUrl: 'https://via.placeholder.com/500' },
   ];
 
   constructor() { }
